@@ -36,12 +36,24 @@ class App extends Component {
       email: this.state.email
     }
 
-    this.setState({
-        friends: [...this.state.friends, newFriend],
-        name: "",
-        age: "",
-        email: ""
-    })
+    // this.setState({
+    //     friends: [...this.state.friends, newFriend],
+    //     name: "",
+    //     age: "",
+    //     email: ""
+    // })
+    axios
+      .post("http://localhost:5000/friends", newFriend)
+      .then(res => {
+        console.log(res)
+        this.setState({
+          friends: res.data,
+          name: "",
+          age: "",
+          email: ""
+        })
+      })
+      .catch(err => console.log(err))
 
 
   }
@@ -51,6 +63,23 @@ class App extends Component {
       [e.target.placeholder]: e.target.value
     })
   }
+  handelEdit = e => {
+    console.log(e.target)
+  }
+
+  handelDelete = e => {
+    console.log(e.target.id)
+    axios
+      .delete(`http://localhost:5000/friends/${e.target.id}`)
+      .then(res => {
+        this.setState({
+          friends: res.data,
+        })
+      })
+      .catch(err => console.log(err))
+
+
+  }
 
 
 
@@ -58,13 +87,19 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Your Friends List</h1>
-        <FriendsList friends={this.state.friends} />
+
+        <FriendsList 
+        friends={this.state.friends}
+        handelEdit={this.handelEdit}
+        handelDelete={this.handelDelete}
+        />
+
         <AddFriendForm 
         handelSubmit={this.handelSubmit} 
         handelChange={this.handelChange}
         name={this.state.name}
         age={this.state.age}
-        emal={this.state.email}
+        email={this.state.email}
         />
       </div>
     );
