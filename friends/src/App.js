@@ -6,7 +6,6 @@ import AddFriendForm from './Components/AddFriendForm'
 import FriendsList from './Components/FriendsList'
 
 class App extends Component {
-
   constructor(){
     super();
 
@@ -17,31 +16,23 @@ class App extends Component {
       email: ""
     }
   }
-
   componentDidMount(){
     axios
       .get("http://localhost:5000/friends")
       .then(res => this.setState({friends: res.data}))
       .catch(err => console.log(err))
   }
-
   handelSubmit = e => {
-    console.log(e.target.value)
     e.preventDefault();
-
+    if(this.state.name.length < 1){
+      return (alert("You must at least supply a name attribute to the form"))
+    }
     const newFriend = {
       id: Math.floor(Math.random()*10000),
       name: this.state.name,
       age: this.state.age,
       email: this.state.email
     }
-
-    // this.setState({
-    //     friends: [...this.state.friends, newFriend],
-    //     name: "",
-    //     age: "",
-    //     email: ""
-    // })
     axios
       .post("http://localhost:5000/friends", newFriend)
       .then(res => {
@@ -57,16 +48,12 @@ class App extends Component {
 
 
   }
-
   handelChange = e => {
+    console.log(e.target)
     this.setState({
       [e.target.placeholder]: e.target.value
     })
   }
-  handelEdit = e => {
-    console.log(e.target)
-  }
-
   handelDelete = e => {
     console.log(e.target.id)
     axios
@@ -77,11 +64,16 @@ class App extends Component {
         })
       })
       .catch(err => console.log(err))
+  }
+  handelUpdate = (id, obj) => {
+    console.log(obj)
+    axios
+      .put(`http://localhost:5000/friends/${id}`, obj)
+      .then(res => this.setState({friends: res.data}))
+      .catch(err => console.log(err))
 
 
   }
-
-
 
   render() {
     return (
@@ -92,7 +84,12 @@ class App extends Component {
         friends={this.state.friends}
         handelEdit={this.handelEdit}
         handelDelete={this.handelDelete}
+        handelChange={this.handelChange}
+        handelUpdate={this.handelUpdate}
         />
+
+
+
 
         <AddFriendForm 
         handelSubmit={this.handelSubmit} 

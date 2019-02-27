@@ -9,6 +9,8 @@ const FriendsList = props => {
                 friend={friend} 
                 key={Math.random()*100} 
                 handelDelete={props.handelDelete}
+                handelChange={props.handelChange}
+                handelUpdate={props.handelUpdate}
                 />
             })}
         </div>
