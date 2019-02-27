@@ -8,7 +8,7 @@ let nextId = 7;
 function getNewId() {
   return nextId++;
 }
-
+ 
 let friends = [
   {
     id: 1,
