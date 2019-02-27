@@ -3,6 +3,7 @@ import React from 'react'
 const AddFriendForm = props => {
     return(
         <div className="friends-form" onSubmit={props.handelSubmit}>
+            <h2>add a friend</h2>
             <form>
                 <input 
                 placeholder="name" 
@@ -24,7 +25,7 @@ const AddFriendForm = props => {
                 
                 <br />
                 
-                <button>Submit Friend</button>
+                <button>submit</button>
             </form>
         </div>
     );

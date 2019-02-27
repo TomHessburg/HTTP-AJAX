@@ -13,7 +13,7 @@ const Friend = props => {
             <h4>{props.friend.email}</h4>
 
 
-            <form>
+            <form className="edit-friend-form">
                 <input 
                 placeholder="name" 
                 value={name}
@@ -46,6 +46,8 @@ const Friend = props => {
 
                 <button 
                 id={props.friend.id}
+
+
                 onClick={ e => {
                     e.preventDefault();
 
@@ -56,7 +58,15 @@ const Friend = props => {
                         id: props.friend.id
                     }
 
-                    props.handelUpdate(props.friend.id, edited);
+                    
+
+                    if(name && age && email){
+                        props.handelUpdate(props.friend.id, edited);
+                    }else{
+                        alert("please supply information to all fields")
+                    }
+
+                    
                 } }
                 >Edit</button>
 

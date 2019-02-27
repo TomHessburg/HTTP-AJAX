@@ -55,7 +55,7 @@ class App extends Component {
     })
   }
   handelDelete = e => {
-    console.log(e.target.id)
+    e.preventDefault();
     axios
       .delete(`http://localhost:5000/friends/${e.target.id}`)
       .then(res => {
@@ -65,6 +65,7 @@ class App extends Component {
       })
       .catch(err => console.log(err))
   }
+  
   handelUpdate = (id, obj) => {
     console.log(obj)
     axios
@@ -87,9 +88,6 @@ class App extends Component {
         handelChange={this.handelChange}
         handelUpdate={this.handelUpdate}
         />
-
-
-
 
         <AddFriendForm 
         handelSubmit={this.handelSubmit} 
