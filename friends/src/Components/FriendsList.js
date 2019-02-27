@@ -5,7 +5,7 @@ const FriendsList = props => {
     return(
         <div className="friends-list">
             {props.friends.map(friend => {
-                return <Friend friend={friend} key={Math.floor(Math.random()*100)} />
+                return <Friend friend={friend} key={Math.random()*100} />
             })}
         </div>
     );

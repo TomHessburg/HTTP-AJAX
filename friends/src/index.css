@@ -1,4 +1,5 @@
 body {
+  background: rgb(244, 244, 244);
   margin: 0;
   padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -11,4 +12,44 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+h1{
+  font-size: 55px;
+  color: rgb(92, 92, 92);
+}
+
+.friend{
+  background: rgb(242, 242, 46);
+  width: 450px;;
+  margin: 10px auto;
+  box-sizing: border-box;
+  padding: 10px;
+  border-left: 15px solid black;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+.friend h2{
+  font-size: 38px;
+}
+
+.friends-list{
+  margin: 0 auto;
+  max-width: 1400px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+.friends-form{
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.friends-form input{
+  margin: 10px;
 }
