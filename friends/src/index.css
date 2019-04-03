@@ -1,0 +1,95 @@
+body {
+  background: rgb(244, 244, 244);
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+h1{
+  font-size: 55px;
+  color: rgb(77, 9, 186);
+}
+
+.friend{
+  background: rgb(255, 255, 241);
+  width: 450px;;
+  margin: 10px auto;
+  box-sizing: border-box;
+  padding: 10px;
+  border-left: 15px solid #B7B483;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+.friend h2{
+  font-size: 38px;
+  color: #27086A;
+}
+
+.friends-list{
+  margin: 0 auto;
+  max-width: 1400px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+.friends-form{
+  width: 90%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  margin: 50px auto;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  padding: 20px;
+  background: rgb(77, 9, 186);
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.friends-form h2 {
+  color: white;
+  font-size: 40px;
+  margin: 0;
+}
+
+.friends-form button {
+  background: #C0AD4D;
+  color: white;
+  border: 1px solid white;
+  width: 120px;
+  height: 24px;
+  font-size: 16px;
+}
+
+.friends-form input{
+  margin: 10px;
+  width: 175px;
+  height: 30px;
+}
+
+.edit-friend-form{
+  display: flex;
+  flex-direction: column;
+}
+.edit-friend-form input{
+ width: 80%;
+ margin: 10px;
+ border: 1px solid #6A6400;
+ padding: 5px;
+ border-radius: 6px;
+}
+
+.edit-friend-form button{
+  width: 60%;
+  margin: 10px;
+ }
